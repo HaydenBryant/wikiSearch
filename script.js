@@ -15,21 +15,9 @@ function handleClick() {
 }
 
 function displayResults(myResults) {
-    
+
     document.getElementById("myResults").innerHTML = ' ';
-
-
-    // var titles = myResults[1].map(function(item) {
-    //     return "<li>" + item + "<br><a href=" + "</li>";
-
-    // });
-    // list = list.join("\n");
-
-
-
-    // // document.getElementById("myResults").setAttribute("href", myResults[3].map());
-
-    // document.getElementById("myResults").innerHTML = list;
+    
     var i = 0;
     myResults[1].forEach(function(item) {
         const list2 = document.createElement("li");
@@ -37,8 +25,15 @@ function displayResults(myResults) {
         link.innerHTML = item;
         link.setAttribute("href", myResults[3][i]);
         i++;
-        
+
+        const snippet = document.createElement("span");
+        snippet.innerHTML = myResults[2][i];
+
+        const br = document.createElement("br");
+
         list2.appendChild(link);
+        list2.appendChild(br);
+        list2.appendChild(snippet);
 
         document.getElementById("myResults").appendChild(list2);
     });
